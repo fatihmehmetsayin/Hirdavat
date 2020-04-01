@@ -4,5 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hirdavat.Core\Hirdavat.Core.csproj" />
+    <ProjectReference Include="..\Hirdavat.Data\Hirdavat.Data.csproj" />
+    <ProjectReference Include="..\Hirdavat.Servis\Hirdavat.Servis.csproj" />
+  </ItemGroup>
+
 
 </Project>
