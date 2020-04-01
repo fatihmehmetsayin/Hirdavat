@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Hirdavat.Core.Models
 {
-    class Category
+   public class Category
     {
         public Category()
         {            //boş bir colleciton nesnesi oluşturuyor.

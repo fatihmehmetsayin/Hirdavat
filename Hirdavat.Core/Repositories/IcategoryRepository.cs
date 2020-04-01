@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
+// data katmanındaki  repository clası implement edecek
 namespace Hirdavat.Core.Repositories
 {
 
 
     //generic repository pattern imlement edildi
-    interface IcategoryRepository : IRepository<Category>
+   public interface IcategoryRepository : IRepository<Category>
     {
 
         //category ve kadogriye bağlı ürünler dönsün

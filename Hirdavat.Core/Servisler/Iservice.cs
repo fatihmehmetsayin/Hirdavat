@@ -4,12 +4,16 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hirdavat.Core.Repositories
+namespace Hirdavat.Core.Servisler
 {
 
-    // data katmanındaki  repository clası implement edecek
-  public   interface IRepository<TEntity> where TEntity : class
+    public interface Iservice<TEntity> where TEntity : class
     {
+        //servis repositorynin kopyası
+        //veri tabanın  değitirilmesi durumuna karşılık yapılmıştır.
+        //veri tabanı değişine repository değişir ancak servis değişmez
+
+
         // veri tabanı ile ilgili en sık kullanılan interfaceler
 
         //Id ye göre nesne getir. 
@@ -22,7 +26,7 @@ namespace Hirdavat.Core.Repositories
 
         // TEntity alan Geriye bool dönen bir metodu işaret ediyor
         //herhangi bir parametrey göre nesne getir.
-       Task< IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
 
 
         //product innerborkodu şu olanı döndür.
@@ -48,7 +52,6 @@ namespace Hirdavat.Core.Repositories
         TEntity Update(TEntity entity);
 
 
-       
 
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hirdavat.Core.Models
 {
-    class Kurumsal
+  public  class Kurumsal
     {
 
         public string Hakkimizda { get; set; }
