@@ -32,15 +32,15 @@ namespace Hirdavat_Api_Nesne2
 
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionString:SqlConStr"].ToString()) ; 
-                     
+                options.UseSqlServer(Configuration["ConnectionString:SqlConStr"].ToString(), o => { o.MigrationsAssembly("Hirdavat.Data"); });
+
             });
             services.AddScoped<IunitOfWork, UnitOfWork>();
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-       public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
