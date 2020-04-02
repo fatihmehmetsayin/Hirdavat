@@ -14,7 +14,7 @@ namespace Hirdavat.Core.UnitOfWorks
     //alış veris yaparken toplu olarak tek bir seferde göndersin 
     //tek tek göndermesin 
 
-    interface IunitOfWork
+   public interface IunitOfWork
     {
 
         //Iunitof pattern içinde  verilmeyebilirler
