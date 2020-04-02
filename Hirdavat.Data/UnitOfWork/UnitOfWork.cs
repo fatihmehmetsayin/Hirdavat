@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Hirdavat.Data.UnitOfWork
 {
-    class UnitOfWork : IunitOfWork
+     public class UnitOfWork : IunitOfWork
     {
         private readonly AppDbContext _AppDbContext;
         private ProductRepository _ProductRepository;

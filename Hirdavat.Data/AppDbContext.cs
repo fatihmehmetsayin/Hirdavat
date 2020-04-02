@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Hirdavat.Data
 {
-    class AppDbContext : DbContext
+  public  class AppDbContext : DbContext
     {
 
         //AppDbcontext mümkün olduğunca sade olması gerekir   
