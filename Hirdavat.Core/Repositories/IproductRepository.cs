@@ -16,6 +16,6 @@ namespace Hirdavat.Core.Repositories
         //product da ait özel metotlar burada  olacak
         //Ürünün ID sine bağlı kadegoride  gelsin
 
-        Task<Product> GetWithCategoryByIdAsync(int product);
+        Task<Product> GetWithCategoryByIdAsync(int productId);
     }
 }

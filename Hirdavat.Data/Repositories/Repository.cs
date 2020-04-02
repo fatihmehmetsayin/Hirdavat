@@ -11,10 +11,14 @@ namespace Hirdavat.Data.Repositories
 {
 
     
-    class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+   public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        public readonly DbContext _Context;
-        public readonly DbSet<TEntity> _DbSet;
+
+        //miral aldığım yerde kullanıyorum daha uygun olur
+        protected readonly DbContext _Context;
+
+        // sadece burda kullaıyırum daha doğru olur  
+        private readonly DbSet<TEntity> _DbSet;
 
         public Repository(DbContext context)
         {
