@@ -22,7 +22,7 @@ namespace Hirdavat.Core.Repositories
 
         // TEntity alan Geriye bool dönen bir metodu işaret ediyor
         //herhangi bir parametrey göre nesne getir.
-       Task< IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
+       IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
 
 
         //product innerborkodu şu olanı döndür.
@@ -41,7 +41,7 @@ namespace Hirdavat.Core.Repositories
         void Remove(TEntity entity);
 
         //toplu silme
-        void RemoveRange(IEnumerable<TEntity> entity);
+        void RemoveRange(IEnumerable<TEntity> entities);
 
 
         //güncellemi işlemi
