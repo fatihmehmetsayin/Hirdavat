@@ -33,7 +33,12 @@ namespace Hirdavat_Api_Nesne2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //eðer filter DI nesnesi alýyorsa starup tarafýnda add scpoe eklenmelidir
+            //daha sonra aciton metot üzerinde yazýlmasý yeterlidir.
 
+
+            //depenci Ýnjection nesnesi aldðýndan dolayý buraya kaydedebilirim
+            // bu filter  içerisinde ctorunda bir interface implement alýyor 
 
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
