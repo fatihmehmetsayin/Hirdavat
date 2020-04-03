@@ -18,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using AutoMapper;
 
 namespace Hirdavat_Api_Nesne2
 {
@@ -40,7 +41,7 @@ namespace Hirdavat_Api_Nesne2
             //depenci Ýnjection nesnesi aldðýndan dolayý buraya kaydedebilirim
             // bu filter  içerisinde ctorunda bir interface implement alýyor 
 
-
+            services.AddAutoMapper(typeof(Startup));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(Iservice<>), typeof(Service<>));
             services.AddScoped<ICategoryServis, CategoryService>();
