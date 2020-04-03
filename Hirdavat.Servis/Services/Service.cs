@@ -1,4 +1,5 @@
-﻿using Hirdavat.Core.Repositories;
+﻿using Hirdavat.Core.Models;
+using Hirdavat.Core.Repositories;
 using Hirdavat.Core.Servisler;
 using Hirdavat.Core.UnitOfWorks;
 using System;
@@ -14,11 +15,19 @@ namespace Hirdavat.Servis.Services
 
         public readonly IunitOfWork _ıunitOfWork;
         private readonly IRepository<TEntity> _repository;
+        private IunitOfWork uofW;
+        private IRepository<Category> ırpsity;
 
         public Service(IRepository<TEntity> repository, IunitOfWork ıunitOfWork)
         {
             _repository = repository;
             _ıunitOfWork = ıunitOfWork;
+        }
+
+        public Service(IunitOfWork uofW, IRepository<Category> ırpsity)
+        {
+            this.uofW = uofW;
+            this.ırpsity = ırpsity;
         }
 
         public async Task<TEntity> AddAsync(TEntity entity)

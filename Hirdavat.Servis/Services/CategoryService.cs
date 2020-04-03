@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Hirdavat.Servis.Services
 {
-   public class CategoryService : Service<Category>, ICategoryServis
+    public class CategoryService : Service<Category>, ICategoryServis
     {
         public CategoryService(IRepository<Category> repository, IunitOfWork ıunitOfWork) : base(repository, ıunitOfWork)
         {

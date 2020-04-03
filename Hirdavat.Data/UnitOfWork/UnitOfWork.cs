@@ -25,8 +25,9 @@ namespace Hirdavat.Data.UnitOfWork
         public IproductRepository Product => _ProductRepository = _ProductRepository ?? new ProductRepository(_AppDbContext);
 
         // varsa al  yok ise  yeni bir category reposiyory oluştur ve al
-        public IcategoryRepository Cagetory => _categoryRepository = _categoryRepository ?? new CategoryRepository(_AppDbContext);
-        public IcategoryRepository Category => throw new NotImplementedException();
+
+
+        public IcategoryRepository Category => _categoryRepository = _categoryRepository ?? new CategoryRepository(_AppDbContext);
 
         public void Commit()
         {

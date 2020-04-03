@@ -15,6 +15,16 @@ namespace Hirdavat_Api_Nesne2.Mapping
         {
             CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDto, Category>();
+
+            CreateMap<Category, CategoryWithProductDto>();
+            CreateMap<CategoryWithProductDto, Category>();
+
+            CreateMap<Product, ProductDto>();
+            CreateMap<ProductDto, Product>();
+            CreateMap<ProductWithCategoryDto, Product>();
+            CreateMap<Product, ProductWithCategoryDto>();
+
+
         }
     }
 }

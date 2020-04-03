@@ -62,16 +62,25 @@ namespace Hirdavat_Api_Nesne2.Controllers
         }
 
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{Id}")]
         public   IActionResult Delete(int Id)
         {
             var category = _categoryServis.GetByIdAsync(Id).Result;
             _categoryServis.Remove(category);
-
-
+      
             return NoContent();
 
         }
+
+
+        [HttpGet("{Id}/Product")]
+        public async Task<IActionResult> GetWithProductById(int Id)
+        {
+            var category = await _categoryServis.GetWithProductByIDAsync(Id);
+
+            return Ok(_mapper.Map<CategoryWithProductDto>(category));
+        }
+        
 
 
 
