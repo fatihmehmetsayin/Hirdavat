@@ -9,7 +9,7 @@ namespace Hirdavat.Core.Servisler
     public interface IProductServis : Iservice<Product>
     {
 
-        Task<Product> GetWithCategoryByIdAsync(int product);
+        Task<Product> GetWithCategoryByIdAsync(int productId);
 
         //product nesnesi ile ilgili olan kodlar
         //herhangi bir veri tabanı ile ilgili işlemler ile alakalı  olmak zorunda değil

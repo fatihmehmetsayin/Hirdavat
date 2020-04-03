@@ -10,7 +10,7 @@ namespace Hirdavat.Data.Repositories
 {
     internal class CategoryRepository : Repository<Category>, IcategoryRepository
     {
-        public CategoryRepository(DbContext context) : base(context)
+        public CategoryRepository(AppDbContext context) : base(context)
         {
         }
 

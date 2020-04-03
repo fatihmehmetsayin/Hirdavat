@@ -14,7 +14,7 @@ namespace Hirdavat.Data.Repositories
 
         // as keywordu ile beraber cast işlemi yapıldı ne olduğunu biliyorum
         private AppDbContext _AppDbContext { get => _Context as AppDbContext; }
-        public ProductRepository(DbContext context) : base(context)
+        public ProductRepository(AppDbContext context) : base(context)
         {
         }
 

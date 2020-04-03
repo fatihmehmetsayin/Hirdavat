@@ -20,7 +20,7 @@ namespace Hirdavat.Data.Repositories
         // sadece burda kullaıyırum daha doğru olur  
         private readonly DbSet<TEntity> _DbSet;
 
-        public Repository(DbContext context)
+        public Repository(AppDbContext context)
         {
             //context ile veri tabanına erişim
             _Context = context;
@@ -40,9 +40,9 @@ namespace Hirdavat.Data.Repositories
             await _DbSet.AddRangeAsync(entities);
         }
 
-        public IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
+        public async Task< IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate)
         {
-            return _DbSet.Where(predicate);
+            return await _DbSet.Where(predicate).ToListAsync();
         }
 
 

@@ -22,7 +22,7 @@ namespace Hirdavat.Core.Repositories
 
         // TEntity alan Geriye bool dönen bir metodu işaret ediyor
         //herhangi bir parametrey göre nesne getir.
-       IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
+      Task< IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate);
 
 
         //product innerborkodu şu olanı döndür.

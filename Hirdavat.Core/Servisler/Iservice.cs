@@ -26,7 +26,7 @@ namespace Hirdavat.Core.Servisler
 
         // TEntity alan Geriye bool dönen bir metodu işaret ediyor
         //herhangi bir parametrey göre nesne getir.
-        Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate);
 
 
         //product innerborkodu şu olanı döndür.
@@ -34,18 +34,18 @@ namespace Hirdavat.Core.Servisler
 
 
         //ekleme işlemi
-        Task AddAsync(TEntity entity);
+        Task<TEntity> AddAsync(TEntity entity);
 
 
         //toplu ekleme işlemi
-        Task AddRangeAsync(IEnumerable<TEntity> entities);
+        Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities);
 
 
         //silme işlemi
         void Remove(TEntity entity);
 
         //toplu silme
-        void RemoveRange(IEnumerable<TEntity> entity);
+        void RemoveRange(IEnumerable<TEntity> entities);
 
 
         //güncellemi işlemi
