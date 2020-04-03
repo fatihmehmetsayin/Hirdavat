@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hirdavat.Core.Repositories;
+using Hirdavat.Core.Servisler;
 using Hirdavat.Core.UnitOfWorks;
 using Hirdavat.Data;
+using Hirdavat.Data.Repositories;
 using Hirdavat.Data.UnitOfWork;
+using Hirdavat.Servis.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +33,13 @@ namespace Hirdavat_Api_Nesne2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(Iservice<>), typeof(Service<>));
+            services.AddScoped<ICategoryServis, CategoryService>();
+            services.AddScoped<IProductServis, ProductService>();
 
             services.AddDbContext<AppDbContext>(options =>
             {
