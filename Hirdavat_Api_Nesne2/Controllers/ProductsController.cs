@@ -6,6 +6,7 @@ using AutoMapper;
 using Hirdavat.Core.Models;
 using Hirdavat.Core.Servisler;
 using Hirdavat_Api_Nesne2.Dto;
+using Hirdavat_Api_Nesne2.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,6 +37,10 @@ namespace Hirdavat_Api_Nesne2.Controllers
         }
 
 
+        // [NotFoundFilter(]
+        //burda tanımlayamam servis filter olarak tanımlıcam 
+        //
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetById(int Id)
         {
@@ -45,6 +50,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
 
         }
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{Id}/Category")]
         public async Task<IActionResult> GetWithCategoryById(int Id)
         {
@@ -53,7 +59,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
         }
 
-
+        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
         {
@@ -73,7 +79,8 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
 
         }
-          
+
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpDelete("{Id}")]
         public IActionResult Remove(int Id)
         {

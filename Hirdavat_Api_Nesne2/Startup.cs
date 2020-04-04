@@ -19,6 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
+using Hirdavat_Api_Nesne2.Filters;
 
 namespace Hirdavat_Api_Nesne2
 {
@@ -42,6 +43,11 @@ namespace Hirdavat_Api_Nesne2
             // bu filter  içerisinde ctorunda bir interface implement alýyor 
 
             services.AddAutoMapper(typeof(Startup));
+            //eðer filter DI nesnesi alýyorsa starup tarafýnda add scpoe eklenmelidir
+            //daha sonra aciton metot üzerinde yazýlmasý yeterlidir.
+            //depenci Ýnjection nesnesi aldðýndan dolayý buraya kaydedebilirim
+            // bu filter  içerisinde ctorunda bir interface implement alýyor
+            services.AddScoped<NotFoundFilter>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(Iservice<>), typeof(Service<>));
             services.AddScoped<ICategoryServis, CategoryService>();
@@ -54,6 +60,15 @@ namespace Hirdavat_Api_Nesne2
             });
             services.AddScoped<IunitOfWork, UnitOfWork>();
             services.AddControllers();
+
+            services.Configure<ApiBehaviorOptions>(o =>
+
+            {
+
+                // filter kontrol etme ben edicem hatayý kendim ele alýcam sen karýþma anlamýnda 
+                o.SuppressModelStateInvalidFilter = true;
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
