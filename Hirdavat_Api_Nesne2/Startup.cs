@@ -20,6 +20,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
 using Hirdavat_Api_Nesne2.Filters;
+using Hirdavat_Api_Nesne2.Extension;
 
 namespace Hirdavat_Api_Nesne2
 {
@@ -79,6 +80,8 @@ namespace Hirdavat_Api_Nesne2
                 app.UseDeveloperExceptionPage();
             }
 
+            //tek metoda indirdim   
+            app.UxeException();
             app.UseHttpsRedirection();
 
             app.UseRouting();
