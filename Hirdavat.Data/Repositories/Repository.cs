@@ -1,4 +1,5 @@
-﻿using Hirdavat.Core.Repositories;
+﻿using Hirdavat.Core.Models;
+using Hirdavat.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,12 @@ using System.Threading.Tasks;
 namespace Hirdavat.Data.Repositories
 {
 
-    
-   public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
 
         //miral aldığım yerde kullanıyorum daha uygun olur
-        protected readonly DbContext _Context;
+        protected readonly AppDbContext _Context;
 
         // sadece burda kullaıyırum daha doğru olur  
         private readonly DbSet<TEntity> _DbSet;
@@ -40,7 +41,7 @@ namespace Hirdavat.Data.Repositories
             await _DbSet.AddRangeAsync(entities);
         }
 
-        public async Task< IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate)
         {
             return await _DbSet.Where(predicate).ToListAsync();
         }
@@ -49,7 +50,8 @@ namespace Hirdavat.Data.Repositories
         //Task sekron programlamadaki void e karşılık gelir 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return  await _DbSet.ToListAsync();
+            return await _DbSet.ToListAsync();
+
         }
 
         public async Task<TEntity> GetByIdAsync(int Id)
@@ -81,6 +83,6 @@ namespace Hirdavat.Data.Repositories
             return entity;
         }
 
-       
+
     }
 }

@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Hirdavat.Core.Repositories;
 using Hirdavat.Core.Servisler;
 using Hirdavat.Core.UnitOfWorks;
@@ -13,7 +10,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,6 +17,14 @@ using Microsoft.Extensions.Logging;
 using AutoMapper;
 using Hirdavat_Api_Nesne2.Filters;
 using Hirdavat_Api_Nesne2.Extension;
+using AutoMapper;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hirdavat_Api_Nesne2
 {
@@ -56,9 +60,9 @@ namespace Hirdavat_Api_Nesne2
 
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionString:SqlConStr"].ToString(), o => { o.MigrationsAssembly("Hirdavat.Data"); });
-
+                options.UseInMemoryDatabase(Configuration.GetConnectionString("memory"));
             });
+
             services.AddScoped<IunitOfWork, UnitOfWork>();
             services.AddControllers();
 

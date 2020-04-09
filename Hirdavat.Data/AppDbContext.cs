@@ -12,31 +12,57 @@ namespace Hirdavat.Data
   public  class AppDbContext : DbContext
     {
 
-        //AppDbcontext mümkün olduğunca sade olması gerekir   
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-
-        }
-
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
 
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
 
+            builder.Entity<Category>().ToTable("Categories");
+            builder.Entity<Category>().HasKey(p => p.Id);
+            builder.Entity<Category>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();//.HasValueGenerator<InMemoryIntegerValueGenerator<int>>();
+            builder.Entity<Category>().Property(p => p.Name).HasMaxLength(30);
+            builder.Entity<Category>().HasMany(p => p.Products).WithOne(p => p.Category).HasForeignKey(p => p.CategoryId);
 
-            modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            builder.Entity<Category>().HasData
+            (
+                new Category { Id = 100, Name = "Fruits and Vegetables" }, // Id set manually due to in-memory provider
+                new Category { Id = 101, Name = "Dairy" }
+            );
 
+            builder.Entity<Product>().ToTable("Products");
+            builder.Entity<Product>().HasKey(p => p.Id);
+            builder.Entity<Product>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Product>().Property(p => p.Name).HasMaxLength(50);
+            builder.Entity<Product>().Property(p => p.Stok);
+            //builder.Entity<Product>().Property(p => p.).IsRequired();
 
+         
+            
+          
 
-            modelBuilder.ApplyConfiguration(new ProductSeed(new int[] { 1, 2, 3, 4, 5, 6, 7 }));
-            modelBuilder.ApplyConfiguration(new CategorySeed(new int[] { 1, 2, 3, 4, 5, 6, 7 }));
-
-
-
+            builder.Entity<Product>().HasData
+            (
+                new Product
+                {
+                    Id = 100,
+                    Name = "Apple",
+                    //QuantityInPackage = 1,
+                    //UnitOfMeasurement = EUnitOfMeasurement.Unity,
+                    CategoryId = 100
+                },
+                new Product
+                {
+                    Id = 101,
+                    Name = "Milk",
+                    //QuantityInPackage = 2,
+                    //UnitOfMeasurement = EUnitOfMeasurement.Liter,
+                    CategoryId = 101,
+                }
+            );
         }
     }
 

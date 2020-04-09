@@ -68,6 +68,8 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
         }
 
+
+        [ValidationFilter]
         [HttpPut]
 
         public IActionResult Update(ProductDto productDto)
