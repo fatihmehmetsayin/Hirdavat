@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Hirdavat.Wpf"
         x:Class="Hirdavat.Wpf.MainWindow"
         mc:Ignorable="d"
+    
         Title="MainWindow" Height="900" Width="1200" HorizontalAlignment="Left" ResizeMode="CanResize" WindowState="Maximized" WindowStartupLocation="CenterScreen">
 
     <Grid >
@@ -101,14 +102,77 @@
         <Border Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="8" Background="#FF084B8F">
             <DockPanel>
                 <Image Margin="10" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Source="C:\Users\pc\source\repos\Hirdavat\Hirdavat.Wpf\Picture\Logo.JPG"/>
-               
+
                 <Label DockPanel.Dock="Right"  Height="50" Content="SEPETİM" HorizontalAlignment="Right" Foreground="White" Background="#FFFF651A" FontSize="12"  Margin="10" Width="127"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
                 <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Width="205" Height="40"  />
                 <ComboBox  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="348"  Height="40">
-                    
-                </ComboBox>  
+
+                </ComboBox>
             </DockPanel>
         </Border>
+        <Border  Grid.Column="0" Grid.Row="3" >
+
+            <ComboBox  Text="Mekanik El Alatleri" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+            IsEditable="true"
+            IsReadOnly="true"  FontSize="12">
+
+            </ComboBox>
+
+        </Border>
+        <Border Grid.Column="1" Grid.Row="3">
+            <ComboBox  Text="Elektrikli El Aletleri" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+            IsEditable="true"
+            IsReadOnly="true"  FontSize="12">
+
+            </ComboBox>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="3">
+            <ComboBox  Text="Akülü Aletler" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+            IsEditable="true"
+            IsReadOnly="true" FontStyle="Italic" FontSize="12">
+
+            </ComboBox>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="3">
+            <ComboBox  Text="Havalı El Aletleri" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+            IsEditable="true"
+            IsReadOnly="true" FontStyle="Italic" FontSize="12">
+
+            </ComboBox>
+
+
+        </Border>
+        <Border Grid.Column="4" Grid.Row="3">
+            <ComboBox  Text="Ölçüm Cihazları" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+            IsEditable="true"
+            IsReadOnly="true"  FontSize="12">
+
+            </ComboBox>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="3">
+            
+            <ComboBox  Text="Bahçe Makineleri" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+            IsEditable="true" 
+            IsReadOnly="true"  FontSize="12">
+                
+
+            </ComboBox>
+        </Border>
+        <Border  Grid.Column="6" Grid.Row="3">
+            <ComboBox  Text="Hobi Aletleri" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+            IsEditable="true"
+            IsReadOnly="true" FontStyle="Italic" FontSize="12">
+
+            </ComboBox>
+        </Border>
+        <Border Grid.Column="7" Grid.Row="3">
+            <ComboBox  Text="Şubat Fırsatı" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+            IsEditable="true"
+            IsReadOnly="true" FontStyle="Italic" FontSize="12">
+
+            </ComboBox>
+        </Border>
+
 
     </Grid>
 
