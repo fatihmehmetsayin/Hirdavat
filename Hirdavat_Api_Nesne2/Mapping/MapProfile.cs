@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Hirdavat_Api_Nesne2.Mapping
 {
-    public class MapProfile :Profile
+    public class MapProfile : Profile
     {
 
         public MapProfile()

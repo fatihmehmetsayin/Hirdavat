@@ -29,8 +29,8 @@ namespace Hirdavat.Data
 
             builder.Entity<Category>().HasData
             (
-                new Category { Id = 100, Name = "Fruits and Vegetables" }, // Id set manually due to in-memory provider
-                new Category { Id = 101, Name = "Dairy" }
+                new Category { Id = 100, Name = "Anahtar" }, // Id set manually due to in-memory provider
+                new Category { Id = 101, Name = "Boa tabancları" }
             );
 
             builder.Entity<Product>().ToTable("Products");
@@ -49,7 +49,7 @@ namespace Hirdavat.Data
                 new Product
                 {
                     Id = 100,
-                    Name = "Apple",
+                    Name = "Mekanik El Aletleri",
                     //QuantityInPackage = 1,
                     //UnitOfMeasurement = EUnitOfMeasurement.Unity,
                     CategoryId = 100
@@ -57,7 +57,7 @@ namespace Hirdavat.Data
                 new Product
                 {
                     Id = 101,
-                    Name = "Milk",
+                    Name = "Elektrikli El Alatleri",
                     //QuantityInPackage = 2,
                     //UnitOfMeasurement = EUnitOfMeasurement.Liter,
                     CategoryId = 101,

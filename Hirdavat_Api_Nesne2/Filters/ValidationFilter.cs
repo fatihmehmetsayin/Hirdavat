@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Hirdavat_Api_Nesne2.Filters
 {
-    public class ValidationFilter :ActionFilterAttribute
+    public class ValidationFilter : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {

@@ -26,7 +26,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
             _mapper = mapper;
         }
 
-        [Authorize]
+     
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -36,7 +36,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
         }
 
-        [Authorize]
+        
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetById(int Id)
         {
@@ -45,7 +45,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
         }
 
-        [Authorize]
+        
         [HttpPost]
         public async Task<IActionResult> Save(CategoryDto categoryDto)
         {
@@ -55,7 +55,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
             
         }
 
-        [Authorize]
+       
         [HttpPut]
         public IActionResult Update(CategoryDto categoryDto)
         {
@@ -64,7 +64,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
         }
 
-        [Authorize]
+       
         [HttpDelete("{Id}")]
         public   IActionResult Delete(int Id)
         {
@@ -75,7 +75,6 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
         }
 
-        [Authorize]
         [HttpGet("{Id}/Product")]
         public async Task<IActionResult> GetWithProductById(int Id)
         {

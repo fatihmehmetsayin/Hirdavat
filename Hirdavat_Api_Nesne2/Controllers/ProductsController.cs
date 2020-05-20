@@ -27,7 +27,6 @@ namespace Hirdavat_Api_Nesne2.Controllers
             _mapper = mapper;
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -42,7 +41,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
         // [NotFoundFilter(]
         //burda tanımlayamam servis filter olarak tanımlıcam 
         //
-        [Authorize]
+      
         [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetById(int Id)
@@ -53,7 +52,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
 
         }
-        [Authorize]
+       
         [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{Id}/Category")]
         public async Task<IActionResult> GetWithCategoryById(int Id)
@@ -62,7 +61,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
             return Ok(_mapper.Map<ProductWithCategoryDto>(product));
 
         }
-        [Authorize]
+       
         [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
@@ -72,7 +71,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
         }
 
-        [Authorize]
+        
         [ValidationFilter]
         [HttpPut]
 
@@ -85,7 +84,7 @@ namespace Hirdavat_Api_Nesne2.Controllers
 
 
         }
-        [Authorize]
+      
         [ServiceFilter(typeof(NotFoundFilter))]
         [HttpDelete("{Id}")]
         public IActionResult Remove(int Id)
